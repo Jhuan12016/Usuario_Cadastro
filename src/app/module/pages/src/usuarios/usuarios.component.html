@@ -1,0 +1,60 @@
+<div class="align-button">
+  <button ejs-button content="Adicionar" class="e-success" iconCss="e-icons e-plus" (click)="onOpen()">
+  </button>
+</div>
+<ejs-grid [height]="450" [rowHeight]="60" [allowSorting]="true" [dataSource]="dataSource" class="align-grid">
+  <e-columns>
+    <e-column headerTextAlign="left" width="50">
+      <ng-template #template let-data>
+        <div class='e-btn-group align-button-icon'>
+          <button ejs-button class="e-info" iconCss='e-icons e-edit' (click)="onEdit(data)"></button>
+          <button ejs-button class="e-danger align" iconCss='e-icons e-cancel' (click)="onRemove(data)"></button>
+        </div>
+      </ng-template>
+    </e-column>
+    <e-column field="id" headerText="Pessoas" headerTextAlign="left" textAlign="left" width="30"></e-column>
+    <e-column field="name" headerText="Nome" headerTextAlign="left" textAlign="left" width="100"></e-column>
+    <e-column field="gender" headerText="Sexo" headerTextAlign="left" textAlign="left" width="50"></e-column>
+    <e-column field="birthdate" headerText="Data de Nascimento" headerTextAlign="left" textAlign="left" width="50">
+    </e-column>
+    <e-column field="maritalstatus" headerText="Estado Civil" headerTextAlign="left" textAlign="left"
+      width="50">
+      </e-column>
+  </e-columns>
+</ejs-grid>
+
+<div *ngIf="isModalOpen">
+  <ejs-dialog id='dialog' #modal header="Cadastro de Pessoas" isModal='true' showCloseIcon="true"
+    (close)="onModalClose()" width="60%" height="50%" [content]="body" [footerTemplate]="footer">
+  </ejs-dialog>
+</div>
+
+<ng-template #body>
+  <form [formGroup]="form">
+    <div class="row">
+      <div class="form-group">
+        <ejs-textbox formControlName="id" placeholder="Código" width="7%">
+        </ejs-textbox>
+        <ejs-textbox formControlName="name" placeholder="Nome" width="40%" class="align-text-box-name">
+        </ejs-textbox>
+        <ejs-textbox formControlName="gender" placeholder="sexo" width="15%" class="align-text-box-name"></ejs-textbox>
+        <ejs-datepicker formControlName="birthdate" placeholder="Data Nascimento" width="20%" class="align-text-box-name "></ejs-datepicker>
+        <div class="row">
+          <div class="form-group">
+            <ejs-textbox formControlName="maritalstatus" placeholder="Estado Civil" width="40%"
+              class="align-row-text-box-name"></ejs-textbox>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #footer>
+  <div class="custon-button">
+    <button ejs-button content="Salvar" iconCss="e-icons e-check" class="e-success" [disabled]="!this.form.valid"
+      (click)="onSaveClick()"></button>
+    <button ejs-button content="Cancelar" iconCss="e-icons e-close" class="e-danger" (click)="onModalClose()"></button>
+  </div>
+</ng-template>

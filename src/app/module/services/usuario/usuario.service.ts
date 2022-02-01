@@ -1,8 +1,7 @@
-import { Usuario } from './../../models/src/usuarios';
 import { HttpClient } from '@angular/common/http';
 import { AfterViewInit, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { Usuario } from '../../models/src/usuarios';
 
 const usuario_Url = '/api/usuario';
 
@@ -10,9 +9,6 @@ const usuario_Url = '/api/usuario';
   providedIn: 'root',
 })
 export class UsuarioService implements AfterViewInit {
-  deleteById(id: number) {
-    throw new Error('Method not implemented.');
-  }
   constructor(private httpCliente: HttpClient) {}
   ngAfterViewInit(): void {}
 
@@ -35,5 +31,9 @@ export class UsuarioService implements AfterViewInit {
       `${usuario_Url}/${usuario.id}`,
       usuario
     );
+  }
+
+  deleteById(id: number) {
+    return this.httpCliente.delete(`${usuario_Url}/${id}`).pipe();
   }
 }
