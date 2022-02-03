@@ -15,6 +15,12 @@ interface GridRow {
   gender: string;
   birthdate: string;
   maritalstatus:string;
+  Zipcode: number;
+  Address:string;
+  Number: number;
+  Complement: string;
+  State: string;
+  City: string;
 }
 
 @Component({
@@ -35,9 +41,9 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   modal!: DialogComponent;
 
   dataSource: GridRow[] = [
-    { id: 1, name: 'jhuan Gabriel de Souza', gender:'Masculino', birthdate:'17/09/1998',maritalstatus:'Casado' },
-    { id: 2, name: 'jenny Rabelo de Souza', gender:'Feminino', birthdate:'30/09/1998',maritalstatus:'Casado' },
-    { id: 3, name: 'Mateus Walz', gender:'Masculino', birthdate:'17/12/1999',maritalstatus:'Solteiro' },
+    { id: 1, name: 'jhuan Gabriel de Souza', gender:'Masculino', birthdate:'17/09/1998',maritalstatus:'Casado',Zipcode:89220070,Address:'Canario Belga', Number:203,Complement:'Casa',State:'Santa Catarina',City:'Joinville'},
+    { id: 2, name: 'jenny Rabelo de Souza', gender:'Feminino', birthdate:'30/09/1998',maritalstatus:'Casado',Zipcode:89220070,Address:'Canario Belga', Number:203,Complement:'Casa',State:'Santa Catarina',City:'Joinville'},
+
 
 
   ];
@@ -157,6 +163,12 @@ export class UsuariosComponent implements OnInit, OnDestroy {
     model.gender = formValue.gender as string;
     model.birthdate = formValue.birthdate as string;
     model.maritalstatus = formValue.maritalstatus as string;
+    model.Zipcode = formValue.CEP === NEW_ID ? 0 : (formValue.id as number);
+    model.Address = formValue.Endereço as string;
+    model.Number = formValue.Numero === NEW_ID ? 0 : (formValue.id as number);
+    model.Complement = formValue.Complemento as string;
+    model.State = formValue.Estado as string;
+    model.City = formValue.Cidade as string;
     return model;
   }
 

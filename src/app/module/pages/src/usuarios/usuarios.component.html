@@ -19,7 +19,18 @@
     </e-column>
     <e-column field="maritalstatus" headerText="Estado Civil" headerTextAlign="left" textAlign="left"
       width="50">
-      </e-column>
+      <e-column field="Zipcode" headerText="CEP" headerTextAlign="left" textAlign="left" width="50">
+        <e-column field="Address" headerText="Endereço" headerTextAlign="left" textAlign="left" width="50"></e-column>
+          <e-column field="Number" headerText="Numero" headerTextAlign="left" textAlign="left" width="50"></e-column>
+            <e-column field="Complement" headerText="Complemento" headerTextAlign="left" textAlign="left"
+              width="50"></e-column>
+              <e-column field="State" headerText="Estado" headerTextAlign="left" textAlign="left"
+                width="50"></e-column>
+                <e-column field="City" headerText="Cidade" headerTextAlign="left" textAlign="left"
+                  width="50">
+            </e-column>
+          </e-column>
+        </e-column>
   </e-columns>
 </ejs-grid>
 
@@ -41,8 +52,19 @@
         <ejs-datepicker formControlName="birthdate" placeholder="Data Nascimento" width="20%" class="align-text-box-name "></ejs-datepicker>
         <div class="row">
           <div class="form-group">
-            <ejs-textbox formControlName="maritalstatus" placeholder="Estado Civil" width="40%"
+            <ejs-textbox formControlName="maritalstatus" placeholder="Estado Civil" width="30%"
               class="align-row-text-box-name"></ejs-textbox>
+              <ejs-textbox formControlName="Zipcode" placeholder="CEP" width="20%"class="align-text-box-name"></ejs-textbox>
+              <ejs-textbox formControlName="Address" placeholder="Endereço" width="40%" class="align-text-box-name">
+              </ejs-textbox>
+              <ejs-textbox formControlName="Number" placeholder="Numero" width="15%" class="align-row-text-box-name">
+              </ejs-textbox>
+              <ejs-textbox formControlName="Complement" placeholder="Complemento" width="15%" class="align-row-text-box-name">
+              </ejs-textbox>
+              <ejs-textbox formControlName="State" placeholder="Estado" width="20%" class="align-text-box-name">
+              </ejs-textbox>
+              <ejs-textbox formControlName="City" placeholder="Cidade" width="30%" class="align-text-box-name">
+              </ejs-textbox>
           </div>
         </div>
 
